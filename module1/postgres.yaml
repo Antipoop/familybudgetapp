@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: test
+    volumes:
+      - pgdata1:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+ 
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 8081:80       
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pavel@stepanoff.info
+      PGADMIN_DEFAULT_PASSWORD: test
+
+volumes:
+  pgdata1:
